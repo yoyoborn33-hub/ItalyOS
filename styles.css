@@ -1,0 +1,175 @@
+:root {
+  --win98-teal: #008080;
+  --window-gray: #c0c0c0;
+  --shadow: #404040;
+  --highlight: #ffffff;
+  --font: "MS Sans Serif", "Tahoma", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  background: var(--win98-teal);
+  cursor: none;
+  overflow: hidden;
+}
+
+.desktop {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.desktop-area {
+  flex: 1;
+  padding: 40px;
+}
+
+.window {
+  width: 420px;
+  background: var(--window-gray);
+  border-top: 2px solid var(--highlight);
+  border-left: 2px solid var(--highlight);
+  border-right: 2px solid var(--shadow);
+  border-bottom: 2px solid var(--shadow);
+  box-shadow: 2px 2px 0 #000000;
+}
+
+.window-title {
+  background: linear-gradient(90deg, #000080, #0000cd);
+  color: #ffffff;
+  padding: 6px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.window-controls button {
+  margin-left: 4px;
+  width: 22px;
+  height: 20px;
+  font-size: 11px;
+  background: var(--window-gray);
+  border-top: 1px solid var(--highlight);
+  border-left: 1px solid var(--highlight);
+  border-right: 1px solid var(--shadow);
+  border-bottom: 1px solid var(--shadow);
+}
+
+.window-body {
+  padding: 16px;
+  color: #000000;
+  background: #e0e0e0;
+  font-size: 14px;
+}
+
+.taskbar {
+  height: 42px;
+  background: var(--window-gray);
+  border-top: 2px solid var(--highlight);
+  display: flex;
+  align-items: center;
+  padding: 4px 8px;
+  gap: 12px;
+}
+
+.start {
+  font-weight: bold;
+  background: var(--window-gray);
+  border-top: 2px solid var(--highlight);
+  border-left: 2px solid var(--highlight);
+  border-right: 2px solid var(--shadow);
+  border-bottom: 2px solid var(--shadow);
+  padding: 4px 10px;
+}
+
+.taskbar-title {
+  color: #000000;
+  font-size: 13px;
+  flex: 1;
+}
+
+.tray {
+  background: #b0b0b0;
+  padding: 4px 8px;
+  border-top: 1px solid var(--highlight);
+  border-left: 1px solid var(--highlight);
+  border-right: 1px solid var(--shadow);
+  border-bottom: 1px solid var(--shadow);
+  font-size: 12px;
+}
+
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 26px;
+  height: 26px;
+  background: linear-gradient(135deg, #ffffff 0%, #ffffff 55%, #000000 56%, #000000 62%, #ffffff 63%);
+  clip-path: polygon(0 0, 0 100%, 30% 70%, 45% 100%, 58% 95%, 42% 62%, 72% 62%);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.lens {
+  position: fixed;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.35), inset 0 0 20px rgba(255, 255, 255, 0.3);
+  pointer-events: none;
+  backdrop-filter: saturate(1.5) contrast(1.1) blur(0.5px);
+  transform: translate(-50%, -50%);
+  z-index: 9;
+}
+
+.crt,
+.noise,
+.scanlines {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.scanlines {
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.12) 0px,
+    rgba(0, 0, 0, 0.12) 1px,
+    rgba(0, 0, 0, 0) 2px,
+    rgba(0, 0, 0, 0) 4px
+  );
+  mix-blend-mode: multiply;
+}
+
+.noise {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' fill='none'/%3E%3Ccircle cx='12' cy='20' r='1' fill='%23ffffff' fill-opacity='0.15'/%3E%3Ccircle cx='80' cy='60' r='1' fill='%23000000' fill-opacity='0.2'/%3E%3Ccircle cx='60' cy='90' r='1' fill='%23ffffff' fill-opacity='0.1'/%3E%3C/svg%3E");
+  opacity: 0.25;
+  animation: noiseShift 0.2s steps(2) infinite;
+}
+
+.crt {
+  background: radial-gradient(circle at 50% 50%, rgba(0, 255, 255, 0.08), rgba(0, 0, 0, 0.45));
+  mix-blend-mode: screen;
+}
+
+@keyframes noiseShift {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-10px, 10px);
+  }
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Windows 98 Desk</title>
+  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="crt"></div>
+  <div class="noise"></div>
+  <div class="scanlines"></div>
+
+  <div class="desktop">
+    <header class="taskbar">
+      <button class="start">Start</button>
+      <div class="taskbar-title">Windows 98</div>
+      <div class="tray">
+        <span class="clock">12:98 PM</span>
+      </div>
+    </header>
+
+    <main class="desktop-area">
+      <section class="window">
+        <div class="window-title">
+          <span>My Computer</span>
+          <div class="window-controls">
+            <button aria-label="Minimize">_</button>
+            <button aria-label="Maximize">[]</button>
+            <button aria-label="Close">X</button>
+          </div>
+        </div>
+        <div class="window-body">
+          <p>Welcome to a Windows 98 inspired desktop.</p>
+          <p>Click anywhere to lock the cursor and move the custom arrow.</p>
+          <p>Press <strong>Esc</strong> to release the lock.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="lens" aria-hidden="true"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
